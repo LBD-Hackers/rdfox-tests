@@ -1,0 +1,202 @@
+dstore create fso par-complex-nn
+# Datastore types: https://docs.oxfordsemantic.tech/3.1/structure-of-information.html#data-store-types
+
+active fso
+
+# LOAD TRIPLES
+import "./fso-abox.ttl"
+import "./terminal-power-output.ttl"
+import "./pipe-sizes.ttl"
+
+# LOAD TBOX
+import > <https://w3id.org/fso> "./fso.ttl"
+importaxioms <https://w3id.org/fso> > rdfox:DefaultTriples
+
+# DEFINE PREFIXES
+prefix fso: <https://w3id.org/fso#>
+prefix f: <https://w3id.org/fso/fluids#>
+prefix ex: <https://example.com/ex#>
+prefix math: <http://www.w3.org/2005/xpath-functions/math#>
+
+set output out
+
+# GET TERMINALS AND THEIR POWER OUTPUT
+SELECT ?t ?p WHERE { \
+    ?t a fso:Terminal . \
+    ?t ex:powerOutput ?p \
+}
+
+# DEFINE RULE THAT CALCULATES TERMINAL FLOW TEMPERATURE DIFFERENCE
+import "./RULES/FSO/terminal-temperature-difference.dlog"
+
+# GET TERMINAL DT
+SELECT ?t ?dt WHERE { \
+    ?t a fso:Terminal ; \
+        ex:fluidTemperatureDifference ?dt . \
+}
+
+# RESULT
+# <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGb%24> 20 .
+# <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGdB> 20 .
+
+# DEFINE RULE THAT CALCULATES FLOW (SIMPLE FORMULA)
+import "./RULES/FSO/terminal-flow-simple.dlog"
+
+# GET TERMINAL FLOWS
+SELECT ?t ?q WHERE { \
+    ?t a fso:Terminal ; \
+        ex:terminalVolumeFlow ?q . \
+}
+
+# RESULT:
+# <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGb%24> 0.000005972222222222 .
+# <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGdB> 0.000008361111111111 .
+
+# CHANGE POWER OUTPUT OF A TERMINAL
+DELETE { ?t ex:powerOutput ?Q } \
+INSERT{ ?t ex:powerOutput 1000 } \
+WHERE{ \
+    BIND(<https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGb%24> AS ?t) \
+    ?t ex:powerOutput ?Q \
+}
+
+# GET TERMINAL FLOWS AGAIN (SHOULD BE CHANGED)
+SELECT ?t ?q WHERE { \
+    ?t a fso:Terminal ; \
+        ex:terminalVolumeFlow ?q . \
+}
+
+# RESULT:
+# <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGb%24> 0.000011944444444444 . !UPDATED AS IT SHOULD BE!
+# <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGdB> 0.000008361111111111 .
+
+# DEFINE RULE THAT ADDS TRANSITIVITY TO SEGMENT SUPPLY
+import "./RULES/FSO/indirectly-supplies-fluid-to.dlog"
+import "./RULES/FSO/indirectly-returns-fluid-to.dlog"
+
+# DEFINE RULE THAT SUMS UP FLOW FOR EACH PIPE SEGMENT
+import "./RULES/FSO/segment-flow-supply.dlog"
+import "./RULES/FSO/segment-flow-return.dlog"
+
+# GET SEGMENT FLOWS
+SELECT ?q (COUNT(?s) AS ?segments)  WHERE { \
+    ?s a fso:Segment ; \
+        ex:segmentVolumeFlow ?q . \
+} GROUP BY ?q
+
+# RESULT:
+# 6 0.000020305555555555 .
+# 19 0.000011944444444444 .
+# 17 0.000008361111111111 .
+# ...
+
+# DEFINE RULE THAT CALCULATES INNER PIPE CROSS SECTIONAL AREA
+import "./RULES/FSO/segment-inner-cross-sectional-area.dlog"
+
+# GET SEGMENT AREAS
+SELECT ?a (COUNT(?s) AS ?segments) WHERE { \
+    ?s a fso:Segment ; \
+        ex:innerCrossSectionalArea ?a . \
+} GROUP BY ?a
+
+# RESULT:
+# 1.1309733552923255e-4 44 .
+
+# DEFINE RULE THAT CALCULATES FLUID VELOCITY
+import "./RULES/FSO/segment-fluid-velocity.dlog"
+
+
+# GET SEGMENT FLUID VELOCITIES
+SELECT ?v (COUNT(?s) AS ?segments) WHERE { \
+    ?s a fso:Segment ; \
+        ex:fluidVelocity ?v . \
+} GROUP BY ?v
+
+# RESULT:
+# 1.7954052993853753e-1 6 .
+# 1.0561207643443279e-1 19 .
+# 7.3928453504104735e-2 17 .
+
+# CHANGE SUPPLY TEMPERATURE OF THE SYSTEM
+DELETE { ?s ex:temp ?t } \
+INSERT{ ?s ex:temp 50 } \
+WHERE{ \
+    BIND(<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOnnz> AS ?s) \
+    ?s ex:temp ?t \
+}
+
+# SHOULD CHANGE TERMINAL DT
+SELECT ?t ?dt WHERE { \
+    ?t a fso:Terminal ; \
+        ex:fluidTemperatureDifference ?dt . \
+}
+
+# RESULT
+# <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGb%24> 10 . !UPDATED AS IT SHOULD BE!
+# <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGdB> 10 . !UPDATED AS IT SHOULD BE!
+
+# SHOULD CHANGE TERMINAL FLOWS
+SELECT ?t ?q WHERE { \
+    ?t a fso:Terminal ; \
+        ex:terminalVolumeFlow ?q . \
+}
+
+# RESULT
+# <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGb%24> 0.000023888888888889 . !UPDATED AS IT SHOULD BE!
+# <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGdB> 0.000016722222222222 . !UPDATED AS IT SHOULD BE!
+
+# SHOULD CHANGE SEGMENT FLOWS
+SELECT ?q (COUNT(?s) AS ?segments)  WHERE { \
+    ?s a fso:Segment ; \
+        ex:segmentVolumeFlow ?q . \
+} GROUP BY ?q
+
+# RESULT:
+# 6 0.000040611111111111 . !UPDATED AS IT SHOULD BE!
+# 19 0.000023888888888889 . !UPDATED AS IT SHOULD BE!
+# 17 0.000016722222222222 . !UPDATED AS IT SHOULD BE!
+
+# SHOULD CHANGE TERMINAL VOLUME FLOW, SEGMENT VOLUME FLOWS AND THEREFORE SEGMENT VELOCITIES
+SELECT ?v (COUNT(?s) AS ?segments) WHERE { \
+    ?s a fso:Segment ; \
+        ex:fluidVelocity ?v . \
+} GROUP BY ?v
+
+# RESULT:
+# 1.4785690700820947e-1 17 . !UPDATED AS IT SHOULD BE!
+# 3.5908105987708389e-1 6 . !UPDATED AS IT SHOULD BE!
+# 2.1122415286887444e-1 19 . !UPDATED AS IT SHOULD BE!
+
+info
+
+## LET'S TEST SOME SHACL
+import > <https://w3id.org/fso/shacl> "./RULES/FSO/shacl.ttl"
+
+SELECT ?s ?p ?o { \
+    TT rdfox:SHACL { rdfox:DefaultTriples <https://w3id.org/fso/shacl> ?s ?p ?o } \
+}
+
+explain TT rdfox:SHACL { rdfox:DefaultTriples <https://w3id.org/fso/shacl> ?s ?p ?o }
+
+
+# LET'S INHERIT SOME FLUID PROPERTIES
+import "./fluids.ttl"
+import "./RULES/FSO/fluid-cp-nearest.dlog"
+# import "./RULES/FSO/fluid-cp-interpolated.dlog"
+
+SELECT * WHERE {?s a fso:System ; ex:temp ?t ; ex:cp ?cp}
+
+# CHANGE SUPPLY TEMPERATURE OF THE SYSTEM
+DELETE { ?s ex:temp ?t } \
+INSERT{ ?s ex:temp 52 } \
+WHERE{ \
+    BIND(<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOnnz> AS ?s) \
+    ?s ex:temp ?t \
+}
+
+SELECT * WHERE {?s a fso:System ; ex:temp ?t ; ex:cp ?cp}
+
+# REMOVE STORE AND QUIT
+dstore delete fso force
+
+quit

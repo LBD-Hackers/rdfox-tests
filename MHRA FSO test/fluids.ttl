@@ -1,0 +1,28 @@
+@prefix : <https://w3id.org/fso/fluids#> .
+@prefix ex: <https://example.com/ex#> .
+
+:Water a :FluidType ;
+    :hasHeatFactor [ ex:temp 0.01 ;
+                                ex:cp 4.2199 ] ;
+    :hasHeatFactor [ ex:temp 10 ;
+                                ex:cp 4.1955 ] ;
+    :hasHeatFactor [ ex:temp 20 ;
+                                ex:cp 4.1844]  ;
+    :hasHeatFactor [ ex:temp 25 ;
+                                ex:cp 4.1816] ;
+    :hasHeatFactor [ ex:temp 30 ;
+                                ex:cp 4.1801]  ;
+    :hasHeatFactor [ ex:temp 40 ;
+                                ex:cp 4.1796 ] ;
+    :hasHeatFactor [ ex:temp 50 ;
+                                ex:cp 4.1815]  ;
+    :hasHeatFactor [ ex:temp 60 ;
+                                ex:cp 4.1851 ] ;
+    :hasHeatFactor [ ex:temp 70 ;
+                                ex:cp 4.1902]  ;
+    :hasHeatFactor [ ex:temp 80 ;
+                                ex:cp 4.1969 ] ;
+    :hasHeatFactor [ ex:temp 90 ;
+                                ex:cp 4.2053] ;       
+    :hasHeatFactor [ ex:temp 100 ;
+                                ex:cp 4.2157]  .

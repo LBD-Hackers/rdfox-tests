@@ -1,0 +1,332 @@
+@prefix schema: <https://schema.org/> .
+@prefix wgs: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix bot: <https://w3id.org/bot#> .
+@prefix gn: <http://www.geonames.org/ontology#> .
+@prefix dce: <http://purl.org/dc/elements/1.1/> .
+@prefix ifc: <http://ifcowl.openbimstandards.org/IFC2X3_Final#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix ex: <https://example.com/ex#> .
+@prefix fso: <https://w3id.org/fso#> .
+@prefix f: <https://w3id.org/fso/fluids#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix inst: <https://web-bim/resources/FSO-TEST> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOgJR> a ex:Pipe , fso:Segment ;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOnqE> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOhE%24> a ex:Pipe , fso:Segment ;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOhE_> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOiYT> a ex:Pipe , fso:Segment ;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOiWj> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOmV3> a ex:Pipe , fso:Segment ;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOmPF> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOmIn> a ex:Pipe , fso:Segment  .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOmGz> a ex:Pipe , fso:Segment ;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAM8Yk> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOmLH> a ex:Pipe , fso:Segment ;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAM8Ye> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOnnh> a ex:Pipe , fso:Segment ;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGdy> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOnnH> a ex:Pipe , fso:Segment ;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGdw> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOnq2> a ex:Pipe , fso:Segment ;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOnq0> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOnkl> a ex:Pipe , fso:Segment ;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGaf> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOnkL> a ex:Pipe , fso:Segment ;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAMEyQ> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOnb0> a ex:Pipe , fso:Segment ;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAM8Ys> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOnb8> a ex:Pipe , fso:Segment ;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoQ_> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoQx> a ex:Pipe , fso:Segment ;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAM8Yi> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoQU> a ex:Pipe , fso:Segment ;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGXg> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoQQ> a ex:Pipe , fso:Segment ;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGXe> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoQ6> a ex:Pipe , fso:Segment ;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoQ4> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoQE> a ex:Pipe , fso:Segment ;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoRs> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoQA> a ex:Pipe , fso:Segment ;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoLO> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoVk> a ex:Pipe , fso:Segment ;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/3lmlDeRH92FeQGFOnCCnU%24> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoTS> a ex:Pipe , fso:Segment ;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAM8Yq> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoTQ> a ex:Pipe , fso:Segment ;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoGE> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoJj> a ex:Pipe , fso:Segment ;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoJ6> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoJe> a ex:Pipe , fso:Segment ;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoJI> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoJN> a ex:Pipe , fso:Segment ;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoJV> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoJR> a ex:Pipe , fso:Segment ;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/3lmlDeRH92FeQGFOnCCnUr> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoGF> a ex:Pipe , fso:Segment ;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAM8kk> .
+
+<https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAM8lW> a ex:Pipe , fso:Segment ;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAM8lc> .
+
+<https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAMEsq> a ex:Pipe , fso:Segment ;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOiWj> .
+
+<https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAMEy3> a ex:Pipe , fso:Segment ;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAMEy1> .
+
+<https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAMEwY> a ex:Pipe , fso:Segment ;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAMEwP> .
+
+<https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAMExF> a ex:Pipe , fso:Segment ;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoGa> .
+
+<https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAMEv8> a ex:Pipe , fso:Segment ;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAMEu7> .
+
+<https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAMEvx> a ex:Pipe , fso:Segment ;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoGE> .
+
+<https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAMEcJ> a ex:Pipe , fso:Segment ;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/3DXt9xoWTDFQslr3DmKCKx> .
+
+<https://web-bim/resources/FSO-TEST/3lmlDeRH92FeQGFOnCCnUu> a ex:Pipe , fso:Segment ;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/3lmlDeRH92FeQGFOnCCnUF> .
+
+<https://web-bim/resources/FSO-TEST/3lmlDeRH92FeQGFOnCCnw6> a ex:Pipe , fso:Segment ;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOgIT> .
+
+<https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDIcU> a ex:Pipe , fso:Segment ;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDIcW> .
+
+<https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGb5> a ex:Pipe , fso:Segment ;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGah> .
+
+<https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGaJ> a ex:Pipe , fso:Segment ;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGb%24> .
+
+<https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGcn> a ex:Pipe , fso:Segment ;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGcK> .
+
+<https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGXx> a ex:Pipe , fso:Segment ;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGdB> .
+
+<https://web-bim/resources/FSO-TEST/3DXt9xoWTDFQslr3DmKCKv> a ex:Pipe , fso:Segment ;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/3DXt9xoWTDFQslr3DmKCNR> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOhE_> a fso:Fitting;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/3lmlDeRH92FeQGFOnCCnw6>, <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDIcU> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOiWj> a fso:Fitting;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOmV3> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOnq0> a fso:Fitting;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOnnH> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOnqE> a fso:Fitting;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOnq2> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoQ4> a fso:Fitting;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoQQ> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoRs> a fso:Fitting;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoQA> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoJI> a fso:Fitting;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoJj> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoJV> a fso:Fitting;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoJe> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoJ6> a fso:Fitting;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoTS> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoGa> a fso:Fitting;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoTQ> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoGE> a fso:Fitting;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoGF> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoLO> a fso:Fitting;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOnb8> .
+
+<https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAM8Yq> a fso:Fitting;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOnb0> .
+
+<https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAM8Ys> a fso:Fitting;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoQ6> .
+
+<https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAM8Yi> a fso:Fitting;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAMEv8> .
+
+<https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAM8Yk> a fso:Fitting;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAMEwY> .
+
+<https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAM8Ye> a fso:Fitting;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOhE%24> .
+
+<https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAM8kk> a fso:Fitting;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAM8lW> .
+
+<https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAMEyQ> a fso:Fitting;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAMEy3> .
+
+<https://web-bim/resources/FSO-TEST/3lmlDeRH92FeQGFOnCCnUF> a fso:Fitting;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOmLH> .
+
+<https://web-bim/resources/FSO-TEST/3lmlDeRH92FeQGFOnCCnU%24> a fso:Fitting;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoJR>, <https://web-bim/resources/FSO-TEST/3lmlDeRH92FeQGFOnCCnUu> .
+
+<https://web-bim/resources/FSO-TEST/3lmlDeRH92FeQGFOnCCnUr> a fso:Fitting;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoJN> .
+
+<https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGah> a fso:Fitting;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOnkl> .
+
+<https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGaf> a fso:Fitting;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOnkL> .
+
+<https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGdy> a fso:Fitting;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGaJ> .
+
+<https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGdw> a fso:Fitting;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOnnh> .
+
+<https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGcK> a fso:Fitting;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoQE> .
+
+<https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGXg> a fso:Fitting;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGXx> .
+
+<https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGXe> a fso:Fitting;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoQU> .
+
+<https://web-bim/resources/FSO-TEST/3DXt9xoWTDFQslr3DmKCNR> a fso:Fitting;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoVk> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOmPF> a ex:RegulationValve , fso:FlowController ;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOmGz> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoQ_> a ex:RegulationValve , fso:FlowController ;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoQx> .
+
+<https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAM8lc> a ex:RegulationValve , fso:FlowController ;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOmIn> .
+
+<https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAMEy1> a ex:RegulationValve , fso:FlowController ;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOiYT> .
+
+<https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAMEwP> a ex:RegulationValve , fso:FlowController ;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAMExF> .
+
+<https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAMEu7> a ex:RegulationValve , fso:FlowController ;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAMEvx> .
+
+<https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDIcW> a ex:RegulationValve , fso:FlowController ;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAMEsq> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOgIT> a ex:Pump , fso:FlowMovingDevice ;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOgJR> .
+
+<https://web-bim/resources/FSO-TEST/3DXt9xoWTDFQslr3DmKCKx> a ex:Pump , fso:FlowMovingDevice ;
+  fso:suppliesFluidTo <https://web-bim/resources/FSO-TEST/3DXt9xoWTDFQslr3DmKCKv> .
+
+<https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGb%24> a fso:Terminal;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGb5> .
+
+<https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGdB> a fso:Terminal;
+  fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGcn> .
+
+<https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGb3> a fso:System, fso:ReturnSystem;
+  ex:fluidType f:Water;
+  ex:temp "40"^^xsd:int;
+  fso:hasComponent <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOiYT>, <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOmV3>,
+    <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOmIn>, <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOmGz>,
+    <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOnkl>, <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOnkL>,
+    <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOnb8>, <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoQx>,
+    <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoQE>, <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoQA>,
+    <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoTQ>, <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoGF>,
+    <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAM8lW>, <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAMEsq>,
+    <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAMEy3>, <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAMEwY>,
+    <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAMExF>, <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAMEv8>,
+    <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAMEvx>, <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDIcU>,
+    <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGb5>, <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGcn>,
+    <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOhE_>, <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOiWj>,
+    <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoRs>, <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoGa>,
+    <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoGE>, <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoLO>,
+    <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAM8Yi>, <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAM8Yk>,
+    <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAM8kk>, <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAMEyQ>,
+    <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGah>, <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGaf>,
+    <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGcK>, <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOmPF>,
+    <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoQ_>, <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAM8lc>,
+    <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAMEy1>, <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAMEwP>,
+    <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAMEu7>, <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDIcW>,
+    <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGb%24>, <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGdB> .
+
+<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOnnz> a fso:System, fso:SupplySystem;
+  ex:fluidType f:Water;
+  ex:temp "60"^^xsd:int;
+  fso:hasComponent <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOgJR>, <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOhE%24>,
+    <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOmLH>, <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOnnh>,
+    <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOnnH>, <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOnq2>,
+    <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOnb0>, <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoQU>,
+    <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoQQ>, <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoQ6>,
+    <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoVk>, <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoTS>,
+    <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoJj>, <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoJe>,
+    <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoJN>, <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoJR>,
+    <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAMEcJ>, <https://web-bim/resources/FSO-TEST/3lmlDeRH92FeQGFOnCCnUu>,
+    <https://web-bim/resources/FSO-TEST/3lmlDeRH92FeQGFOnCCnw6>, <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGaJ>,
+    <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGXx>, <https://web-bim/resources/FSO-TEST/3DXt9xoWTDFQslr3DmKCKv>,
+    <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOhE_>, <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOnq0>,
+    <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOnqE>, <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoQ4>,
+    <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoJI>, <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoJV>,
+    <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoJ6>, <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAM8Yq>,
+    <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAM8Ys>, <https://web-bim/resources/FSO-TEST/3sQhtDaM1CTgOaGnXAM8Ye>,
+    <https://web-bim/resources/FSO-TEST/3lmlDeRH92FeQGFOnCCnUF>, <https://web-bim/resources/FSO-TEST/3lmlDeRH92FeQGFOnCCnU%24>,
+    <https://web-bim/resources/FSO-TEST/3lmlDeRH92FeQGFOnCCnUr>, <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGdy>,
+    <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGdw>, <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGXg>,
+    <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGXe>, <https://web-bim/resources/FSO-TEST/3DXt9xoWTDFQslr3DmKCNR>,
+    <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOgIT>, <https://web-bim/resources/FSO-TEST/3DXt9xoWTDFQslr3DmKCKx>,
+    <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGb%24>, <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGdB> .
+
+<https://web-bim/resources/FSO-TEST/3rA8ud2qfFxPQ_JdgR5DPS> a fso:System;
+  fso:hasReturnSystem <https://web-bim/resources/FSO-TEST/3rA8ud2qfFxPQ_JdgR5DPS>;
+  fso:hasSupplySystem <https://web-bim/resources/FSO-TEST/3rA8ud2qfFxPQ_JdgR5DPS> .

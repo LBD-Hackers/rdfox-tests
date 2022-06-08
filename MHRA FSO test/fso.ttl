@@ -1,0 +1,374 @@
+@prefix schema: <https://schema.org/> .
+@prefix : <https://w3id.org/fso#> .
+@prefix wgs: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix bot: <https://w3id.org/bot#> .
+@prefix gn: <http://www.geonames.org/ontology#> .
+@prefix dce: <http://purl.org/dc/elements/1.1/> .
+@prefix ifc: <http://ifcowl.openbimstandards.org/IFC2X3_Final#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix ex: <https://example.com/ex#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix inst: <https://web-bim/resources/FSO-TEST> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+:ReturnSystem a owl:Class;
+  rdfs:subClassOf :DistributionSystem;
+  rdfs:comment "A system that returns energy and/or mass from consumers"@en;
+  rdfs:label "Return system"@en, "Retursystem"@da .
+
+:hasComponent a owl:ObjectProperty, owl:AsymmetricProperty;
+  rdfs:subPropertyOf owl:topObjectProperty;
+  rdfs:domain :System;
+  rdfs:range :Component;
+  owl:inverseOf :isComponentOf;
+  rdfs:comment "Relates a system to a component it contains"@en, "Relates a system to a component it contains. If system A has a subsystem B, which has a component C, then system A is said to have component C as well."@en;
+  rdfs:label "har komponent"@da, "has component"@en;
+  owl:propertyChainAxiom _:node16 .
+
+:SupplySystem a owl:Class;
+  rdfs:subClassOf :DistributionSystem;
+  rdfs:comment "A system that supplies energy and/or mass to consumers"@en;
+  rdfs:label "Forsyningssystem"@da, "Supply system"@en .
+
+:System a owl:Class;
+  rdfs:comment "A system is a placeholder for properties that are valid for the components of the system and hence serves as an aggregation function. Common system properties include fluid properties such as the fluid type, temperature and thermal properties."@en;
+  rdfs:label "System"@da, "System"@en .
+
+:hasReturnSystem a owl:ObjectProperty, owl:AsymmetricProperty;
+  rdfs:subPropertyOf :hasSubSystem;
+  rdfs:domain :System;
+  rdfs:range :ReturnSystem;
+  rdfs:comment "Relation between a system and its return system."@en;
+  rdfs:label "has return system"@en .
+
+:hasSupplySystem a owl:ObjectProperty, owl:AsymmetricProperty;
+  rdfs:subPropertyOf :hasSubSystem;
+  rdfs:domain :System;
+  rdfs:range :SupplySystem;
+  rdfs:comment "Relation between a system and its supply system"@en;
+  rdfs:label "har fremløbssystem"@da, "has supply system"@en .
+
+:suppliesFluidTo a owl:ObjectProperty;
+  rdfs:subPropertyOf :feedsFluidTo;
+  rdfs:comment "Relation implying logical supply flow from a thing to another."@en;
+  rdfs:label "forsyner fluid til"@da, "supplies fluid to"@en;
+  owl:propertyChainAxiom _:node32 .
+
+:returnsFluidTo a owl:ObjectProperty;
+  rdfs:subPropertyOf :feedsFluidTo;
+  rdfs:comment "Relation implying logical return flow from a thing to another."@en;
+  rdfs:label "returnerer fluid til"@da, "returns fluid to"@en;
+  owl:propertyChainAxiom _:node29 .
+
+<https://w3id.org/fso#> a owl:Ontology, voaf:Vocabulary, owl:NamedIndividual;
+  owl:versionIRI <https://w3id.org/fso/0.1.0>;
+  dcterms:creator "Ali Kücükavci", "Mads Holten Rasmussen", "Ville Kukkonen";
+  dcterms:description "The Flow Systems Ontology (FSO) is an ontology for describing interconnected systems with material or energy flow connections, and their components."@en;
+  dcterms:issued "2020-01-01T12:00:00"^^xsd:dateTime;
+  dcterms:license <https://creativecommons.org/licenses/by/1.0/>;
+  dcterms:modified "2020-08-06T12:00:00"^^xsd:dateTime;
+  dcterms:title "The Flow Systems Ontology (FSO)"@en;
+  vann:preferredNamespacePrefix "fso";
+  vann:preferredNamespaceUri <https://w3id.org/fso#>;
+  owl:priorVersion <https://w3id.org/fso/0.0.1>;
+  owl:versionInfo "0.1.0" .
+
+dcterms:creator a owl:AnnotationProperty .
+
+dcterms:description a owl:AnnotationProperty .
+
+dcterms:issued a owl:AnnotationProperty .
+
+dcterms:license a owl:AnnotationProperty .
+
+dcterms:modified a owl:AnnotationProperty .
+
+dcterms:title a owl:AnnotationProperty .
+
+vann:preferredNamespacePrefix a owl:AnnotationProperty .
+
+vann:preferredNamespaceUri a owl:AnnotationProperty .
+
+dcterms:contributor a owl:AnnotationProperty .
+
+:connectedWith a owl:SymmetricProperty, owl:ObjectProperty;
+  rdfs:subPropertyOf owl:topObjectProperty;
+  rdfs:comment "A generic \"connection\" relation between things."@en;
+  rdfs:label "connected with"@en;
+  owl:propertyChainAxiom _:node1 .
+
+:isComponentOf a owl:ObjectProperty, owl:AsymmetricProperty;
+  rdfs:subPropertyOf owl:topObjectProperty;
+  rdfs:domain :Component;
+  rdfs:range :System;
+  owl:propertyChainAxiom _:node27 .
+
+:exchangesElectricChargeWith a owl:ObjectProperty;
+  rdfs:subPropertyOf :connectedWith;
+  rdfs:comment "Relation between things that exchange electric charge, i.e. have electrical current between them."@en;
+  rdfs:label "exchanges electric charge with"@en;
+  owl:propertyChainAxiom _:node4 .
+
+:exchangesFluidWith a owl:SymmetricProperty, owl:ObjectProperty;
+  rdfs:subPropertyOf :connectedWith;
+  rdfs:comment "Relation between two things which have a fluid exchange connection"@en;
+  rdfs:label "exchanges fluid with"@en, "udveksler fluid med"@da;
+  owl:propertyChainAxiom _:node7 .
+
+:exchangesHeatWith a owl:SymmetricProperty, owl:ObjectProperty;
+  rdfs:subPropertyOf :connectedWith;
+  rdfs:comment "Relation between two things which have a heat exchange connection"@en;
+  rdfs:label "exchanges heat with"@en, "udveksler varme med"@da;
+  owl:propertyChainAxiom _:node10 .
+
+:feedsFluidTo a owl:ObjectProperty;
+  rdfs:subPropertyOf :exchangesFluidWith;
+  owl:inverseOf :hasFluidFedBy;
+  rdfs:comment "Relation from a thing feeding fluid to the thing it is feeding fluid to."@en;
+  rdfs:label "feeds fluid to"@en, "føder"@da;
+  owl:propertyChainAxiom _:node13 .
+
+:hasFluidFedBy a owl:ObjectProperty;
+  rdfs:subPropertyOf :exchangesFluidWith;
+  rdfs:comment "Relation from a thing that is fed fluid to the thing feeding the fluid."@en;
+  rdfs:label "has fluid fed by"@en;
+  owl:propertyChainAxiom _:node18 .
+
+:Component a owl:Class;
+  rdfs:comment "A component contained by a fso:System"@en;
+  rdfs:label "Component"@en, "Komponent"@da .
+
+:hasSubSystem a owl:ObjectProperty, owl:AsymmetricProperty;
+  rdfs:subPropertyOf owl:topObjectProperty;
+  rdfs:domain :System;
+  rdfs:range :System;
+  owl:inverseOf :isSubSystemOf;
+  rdfs:comment "Relation between a system and its subsystem"@en;
+  rdfs:label "har delsystem"@da, "has subsystem"@en .
+
+:hasConsumerComponent a owl:ObjectProperty;
+  rdfs:subPropertyOf :hasComponent;
+  owl:inverseOf :isConsumerComponentOf;
+  rdfs:comment "Relation between a fso:System and a fso:Component acting as a consumer of energy or matter from the system. For example, a faucet is a consumer for a water system and an air terminal is a consumer for a ventilation system."@en;
+  rdfs:label "has consumer component"@en .
+
+:isConsumerComponentOf a owl:ObjectProperty;
+  rdfs:subPropertyOf :isComponentOf;
+  rdfs:label "is consumer component of"@en .
+
+:hasFluidReturnedBy a owl:ObjectProperty;
+  rdfs:subPropertyOf :hasFluidFedBy;
+  owl:inverseOf :returnsFluidTo;
+  rdfs:comment "Relation between a thing that has fluid returned to it and the thing returning the fluid."@en;
+  rdfs:label "has fluid returned by"@en;
+  owl:propertyChainAxiom _:node21 .
+
+:hasFluidSuppliedBy a owl:ObjectProperty;
+  rdfs:subPropertyOf :hasFluidFedBy;
+  owl:inverseOf :suppliesFluidTo;
+  rdfs:comment "Relation between a thing that has fluid supplied to it and the thing supplying the fluid."@en;
+  rdfs:label "has fluid supplied by"@en;
+  owl:propertyChainAxiom _:node24 .
+
+:hasSourceComponent a owl:ObjectProperty;
+  rdfs:subPropertyOf :hasComponent;
+  owl:inverseOf :isSourceComponentOf;
+  rdfs:comment "Relation between a fso:System and a fso:Component acting as a source of energy or matter to the system. For example, a district heating heat exchanger may act as a source of heat for a building heating system, while the district heating system will see the same heat exchanger as a consumer. Similarly, an AHU may have a heating coil as a source of heat, while the heating system will consider that coil as a consumer."@en;
+  rdfs:label "has source component"@en .
+
+:isSourceComponentOf a owl:ObjectProperty;
+  rdfs:subPropertyOf :isComponentOf;
+  rdfs:label "is source component of"@en .
+
+:isSubSystemOf a owl:ObjectProperty;
+  rdfs:domain :System;
+  rdfs:range :System .
+
+:transfersHeatFrom a owl:ObjectProperty;
+  rdfs:subPropertyOf :exchangesHeatWith;
+  owl:inverseOf :transfersHeatTo;
+  rdfs:comment "Relation signifying heat exchange with intended or actual direction of heat transfer from the second entity to the first. For example, a cooling coil is intended to absorb the heat from air."@en;
+  rdfs:label "transfers heat from"@en;
+  owl:propertyChainAxiom _:node35 .
+
+:transfersHeatTo a owl:ObjectProperty;
+  rdfs:subPropertyOf :exchangesHeatWith;
+  rdfs:comment "Relation signifying heat exchange with intended or actual direction of heat transfer from the first entity to the second. For example, a radiator is intended to transfer heat to the surroundings."@en;
+  rdfs:label "transfers heat to"@en;
+  owl:propertyChainAxiom _:node38 .
+
+voaf:Vocabulary a owl:Class .
+
+:DistributionSystem a owl:Class;
+  rdfs:subClassOf :System;
+  rdfs:comment "A system that distributes energy and/or mass"@en;
+  rdfs:label "Distribution system"@en, "Fordelingssystem"@da .
+
+:EnergyConversionDevice a owl:Class;
+  rdfs:subClassOf :Component;
+  rdfs:comment "A device that is used to convert energy from one form to another, or move it from one system to another. Potential examples include motors and heat exhangers."@en;
+  rdfs:label "Energikonverteringsenhed"@da, "Energy conversion device"@en .
+
+:Fitting a owl:Class;
+  rdfs:subClassOf :Component;
+  rdfs:comment "A component used to connect segments to each other, or to other components. For example, a junction in a pipe system."@en;
+  rdfs:label "Fitting"@da, "Fitting"@en .
+
+:FlowController a owl:Class;
+  rdfs:subClassOf :Component;
+  rdfs:comment "A device that has the potential to control the flow in a network. For example, valves and dampers."@en;
+  rdfs:label "Flow controller"@en, "Flow regulator"@da .
+
+:FlowMovingDevice a owl:Class;
+  rdfs:subClassOf :Component;
+  rdfs:comment "A device used to induce movement in a network. For example, pumps and fans."@en;
+  rdfs:label "Flow bevægende enhed"@da, "Flow moving device"@en .
+
+:Segment a owl:Class;
+  rdfs:subClassOf :Component;
+  rdfs:comment "A component used to enable the passage of material or energy. For example, pipes and ducts."@en;
+  rdfs:label "Segment"@da, "Segment"@en .
+
+:StorageDevice a owl:Class;
+  rdfs:subClassOf :Component;
+  rdfs:comment "A device used to store mass or energy. For example, a water tank or a battery."@en;
+  rdfs:label "Opbevaringsenhed"@da, "Storage device"@en .
+
+:Terminal a owl:Class;
+  rdfs:subClassOf :Component;
+  rdfs:comment "A component used to allow material flow out of a distribution system. For example, faucets and air vents."@en;
+  rdfs:label "Terminal"@da, "Terminal"@en .
+
+:TreatmentDevice a owl:Class;
+  rdfs:subClassOf :Component;
+  rdfs:comment "A device used to change the properties of material flowing through it. For example, filters."@en;
+  rdfs:label "Behandlingsenhed"@da, "Treatment device"@en .
+
+_:node1 rdf:first :hasComponent;
+  rdf:rest _:node2 .
+
+_:node2 rdf:first :connectedWith;
+  rdf:rest _:node3 .
+
+_:node3 rdf:first :isComponentOf;
+  rdf:rest rdf:nil .
+
+_:node4 rdf:first :hasComponent;
+  rdf:rest _:node5 .
+
+_:node5 rdf:first :exchangesElectricChargeWith;
+  rdf:rest _:node6 .
+
+_:node6 rdf:first :isComponentOf;
+  rdf:rest rdf:nil .
+
+_:node7 rdf:first :hasComponent;
+  rdf:rest _:node8 .
+
+_:node8 rdf:first :exchangesFluidWith;
+  rdf:rest _:node9 .
+
+_:node9 rdf:first :isComponentOf;
+  rdf:rest rdf:nil .
+
+_:node10 rdf:first :hasComponent;
+  rdf:rest _:node11 .
+
+_:node11 rdf:first :exchangesHeatWith;
+  rdf:rest _:node12 .
+
+_:node12 rdf:first :isComponentOf;
+  rdf:rest rdf:nil .
+
+_:node13 rdf:first :hasComponent;
+  rdf:rest _:node14 .
+
+_:node14 rdf:first :feedsFluidTo;
+  rdf:rest _:node15 .
+
+_:node15 rdf:first :isComponentOf;
+  rdf:rest rdf:nil .
+
+_:node16 rdf:first :hasSubSystem;
+  rdf:rest _:node17 .
+
+_:node17 rdf:first :hasComponent;
+  rdf:rest rdf:nil .
+
+_:node18 rdf:first :hasComponent;
+  rdf:rest _:node19 .
+
+_:node19 rdf:first :hasFluidFedBy;
+  rdf:rest _:node20 .
+
+_:node20 rdf:first :isComponentOf;
+  rdf:rest rdf:nil .
+
+_:node21 rdf:first :hasComponent;
+  rdf:rest _:node22 .
+
+_:node22 rdf:first :hasFluidReturnedBy;
+  rdf:rest _:node23 .
+
+_:node23 rdf:first :isComponentOf;
+  rdf:rest rdf:nil .
+
+_:node24 rdf:first :hasComponent;
+  rdf:rest _:node25 .
+
+_:node25 rdf:first :hasFluidSuppliedBy;
+  rdf:rest _:node26 .
+
+_:node26 rdf:first :isComponentOf;
+  rdf:rest rdf:nil .
+
+_:node27 rdf:first :isComponentOf;
+  rdf:rest _:node28 .
+
+_:node28 rdf:first :isSubSystemOf;
+  rdf:rest rdf:nil .
+
+_:node29 rdf:first :hasComponent;
+  rdf:rest _:node30 .
+
+_:node30 rdf:first :returnsFluidTo;
+  rdf:rest _:node31 .
+
+_:node31 rdf:first :isComponentOf;
+  rdf:rest rdf:nil .
+
+_:node32 rdf:first :hasComponent;
+  rdf:rest _:node33 .
+
+_:node33 rdf:first :suppliesFluidTo;
+  rdf:rest _:node34 .
+
+_:node34 rdf:first :isComponentOf;
+  rdf:rest rdf:nil .
+
+_:node35 rdf:first :hasComponent;
+  rdf:rest _:node36 .
+
+_:node36 rdf:first :transfersHeatFrom;
+  rdf:rest _:node37 .
+
+_:node37 rdf:first :isComponentOf;
+  rdf:rest rdf:nil .
+
+_:node38 rdf:first :hasComponent;
+  rdf:rest _:node39 .
+
+_:node39 rdf:first :transfersHeatTo;
+  rdf:rest _:node40 .
+
+_:node40 rdf:first :isComponentOf;
+  rdf:rest rdf:nil .
