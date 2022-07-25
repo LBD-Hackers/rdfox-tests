@@ -1,0 +1,6 @@
+[ ?t , ex:terminalVolumeFlow, ?q ]
+:-
+[ ?t , a, fso:Terminal ],
+[ ?t , ex:fluidTemperatureDifference, ?dt ],
+[ ?t , ex:powerOutput, ?Q ],
+BIND( (0.86 * (?Q/?dt) / 1000 / 3600) AS ?q ).

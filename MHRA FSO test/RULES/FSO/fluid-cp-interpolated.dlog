@@ -1,0 +1,13 @@
+[?fluid, ex:cp, ?cpInterpolated] 
+:-
+[?fluid, ex:fluidType, ?type],
+[?fluid, ex:temp, ?temp],
+[?type, f:hasHeatFactor, ?factorLower],
+[?type, f:hasHeatFactor, ?factorHiger],
+[?factorLower, ex:cp, ?pLower],
+[?factorHiger, ex:cp, ?pHigher],
+BIND(xsd:integer(10*FLOOR(?temp/10)) AS ?tempCpLower),
+BIND(xsd:integer(10*CEIL(?temp/10)) AS ?tempCpHigher),
+[?factorLower, ex:temp, ?tempCpLower],
+[?factorHiger, ex:temp, ?tempCpHigher],
+BIND(IF(?pHigher = ?pLower, ?pLower, ((?pHigher - ?pLower)*(?temp - ?tempCpLower)/(?tempCpHigher - ?tempCpLower) + ?pLower)) AS ?cpInterpolated) .

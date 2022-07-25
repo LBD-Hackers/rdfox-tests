@@ -1,0 +1,8 @@
+[?fluid, ex:cp, ?cp] 
+:-
+[?fluid, ex:fluidType, ?type],
+[?fluid, ex:temp, ?temp],
+[?type, f:hasHeatFactor, ?factor],
+[?factor, ex:cp, ?cp],
+BIND(xsd:integer(10*ROUND(?temp/10)) AS ?tempCp),
+[?factor, ex:temp, ?tempCp] .

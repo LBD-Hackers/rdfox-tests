@@ -1,0 +1,8 @@
+[?x, ex:indirectlySuppliesFluidTo, ?y]
+:- 
+[?x, fso:suppliesFluidTo, ?y] .
+
+[?x, ex:indirectlySuppliesFluidTo, ?z] 
+:-
+[?x, fso:suppliesFluidTo, ?y],
+[?y, ex:indirectlySuppliesFluidTo, ?z].

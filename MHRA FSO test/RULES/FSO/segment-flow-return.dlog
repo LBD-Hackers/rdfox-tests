@@ -1,0 +1,10 @@
+[?s, ex:segmentVolumeFlow, ?qTot]
+:-
+[?s, a, fso:Segment],
+AGGREGATE(
+    [?t, ex:indirectlyReturnsFluidTo, ?s],
+    [?t, a, fso:Terminal],
+    [?t, ex:terminalVolumeFlow, ?q]
+    ON ?s
+    BIND SUM(?q) AS ?qTot
+).

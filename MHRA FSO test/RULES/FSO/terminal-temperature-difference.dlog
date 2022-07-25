@@ -1,0 +1,10 @@
+[ ?t , ex:fluidTemperatureDifference, ?dt ]
+:-
+[ ?t , a, fso:Terminal ],
+[ ?sysF , a, fso:SupplySystem ],
+[ ?sysF , ex:temp, ?tF ],
+[ ?sysF , fso:hasComponent, ?t ],
+[ ?sysR , a, fso:ReturnSystem ],
+[ ?sysR , ex:temp, ?tR ],
+[ ?sysR , fso:hasComponent, ?t ],
+BIND( (?tF-?tR) AS ?dt).

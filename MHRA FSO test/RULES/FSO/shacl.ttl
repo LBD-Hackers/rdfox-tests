@@ -1,0 +1,43 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix fso: <https://w3id.org/fso#> .
+@prefix : <https://w3id.org/fso/shapes#> .
+
+# :SegmentShape a sh:NodeShape;
+#     sh:targetClass fso:Segment ;
+#     sh:property [
+#         sh:path [sh:alternativePath (fso:returnsFluidTo fso:suppliesFluidTo)] ;
+#         sh:nodeKind sh:IRI ;
+#         sh:minCount 1
+#     ] ;
+#     sh:severity sh:Warning ;
+#     sh:message "Segments must be connected with either fso:returnsFluidTo or fso:suppliesFluidTo"@en .
+
+:ComponentExchangeFluidShape a sh:NodeShape;
+    sh:targetClass fso:Component ;
+    sh:property [
+        sh:path fso:exchangesFluidWith ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "Segments must exchange fluid with other components (Or else, they are unconnected)"@en
+    ] .
+
+:ComponentFeedsShape a sh:NodeShape;
+    sh:targetClass fso:Component ;
+    sh:property [
+        sh:path fso:feedsFluidTo ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "Components must feed other components"@en
+    ] .
+
+:ComponentFedByShape a sh:NodeShape;
+    sh:targetClass fso:Component ;
+    sh:property [
+        sh:path fso:hasFluidFedBy ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "Components must have fluid fed by other components"@en
+    ] .

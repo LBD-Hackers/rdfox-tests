@@ -1,0 +1,8 @@
+[?x, ex:indirectlyReturnsFluidTo, ?y]
+:- 
+[?x, fso:returnsFluidTo, ?y] .
+
+[?x, ex:indirectlyReturnsFluidTo, ?z] 
+:-
+[?x, fso:returnsFluidTo, ?y],
+[?y, ex:indirectlyReturnsFluidTo, ?z].

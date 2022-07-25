@@ -1,0 +1,6 @@
+[?s, ex:fluidVelocity, ?v]
+:-
+[?s, a, fso:Segment],
+[?s, ex:innerCrossSectionalArea, ?a],
+[?s, ex:segmentVolumeFlow, ?q],
+BIND(?q/?a AS ?v).
