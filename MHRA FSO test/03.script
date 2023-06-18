@@ -1,0 +1,29 @@
+# CREATE STORE
+dstore create flow-system-totorial
+
+# ACTIVATE
+active flow-system-totorial
+
+# LOAD ABOX
+import "./fso-abox.ttl"
+
+# LOAD TBOX
+import > <https://w3id.org/fso> "./fso.ttl"
+importaxioms <https://w3id.org/fso>
+
+# DEFINE PREFIXES
+prefix fso: <https://w3id.org/fso#>
+
+# SET OUTPUT TO PRINT DIRECTLY TO CONSOLE
+set output out
+
+# RUN TEST QUERY
+SELECT ?c WHERE { \
+    ?c a fso:Component . \
+}
+
+# REMOVE STORE
+dstore delete flow-system-totorial force
+
+# QUIT
+quit

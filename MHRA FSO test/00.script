@@ -1,0 +1,10 @@
+# CREATE STORE
+dstore create flow-system-totorial
+
+# ACTIVATE
+active flow-system-totorial
+
+# REMOVE STORE AND QUIT
+dstore delete flow-system-totorial force
+
+quit

@@ -1,4 +1,0 @@
-@prefix ex: <https://example.com/ex#> .
-
-<https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGb%24> ex:powerOutput 500 .
-<https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGdB> ex:powerOutput 700 .

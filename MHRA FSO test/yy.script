@@ -1,0 +1,24 @@
+# CREATE STORE
+dstore create flow-system-totorial par-complex-nn
+
+# ACTIVATE
+active flow-system-totorial
+
+# LOAD TRIPLES
+import "./fso-abox.ttl"
+
+# DEFINE PREFIXES
+prefix fso: <https://w3id.org/fso#>
+
+# SET OUTPUT TO PRINT DIRECTLY IN TERMINAL
+set output out
+
+# RUN TEST QUERY
+SELECT ?t WHERE { \
+    ?t a fso:Terminal . \
+}
+
+# REMOVE STORE AND QUIT
+dstore delete fso force
+
+quit

@@ -12,7 +12,6 @@
 @prefix dbo: <http://dbpedia.org/ontology/> .
 @prefix ex: <https://example.com/ex#> .
 @prefix fso: <https://w3id.org/fso#> .
-@prefix f: <https://w3id.org/fso/fluids#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix inst: <https://web-bim/resources/FSO-TEST> .
@@ -276,8 +275,6 @@
   fso:returnsFluidTo <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGcn> .
 
 <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGb3> a fso:System, fso:ReturnSystem;
-  ex:fluidType f:Water;
-  ex:temp "40"^^xsd:int;
   fso:hasComponent <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOiYT>, <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOmV3>,
     <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOmIn>, <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOmGz>,
     <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOnkl>, <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOnkL>,
@@ -302,8 +299,6 @@
     <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGb%24>, <https://web-bim/resources/FSO-TEST/31eBusKxzBPhJZXeFfDGdB> .
 
 <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOnnz> a fso:System, fso:SupplySystem;
-  ex:fluidType f:Water;
-  ex:temp "60"^^xsd:int;
   fso:hasComponent <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOgJR>, <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOhE%24>,
     <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOmLH>, <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOnnh>,
     <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOnnH>, <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOnq2>,
