@@ -4,14 +4,14 @@ dstore create flow-system-totorial
 # ACTIVATE
 active flow-system-totorial
 
-# LOAD ABOX
-import "./fso-abox.ttl"
+# SET OUTPUT TO PRINT DIRECTLY TO CONSOLE
+set output out
 
 # DEFINE PREFIXES
 prefix fso: <https://w3id.org/fso#>
 
-# SET OUTPUT TO PRINT DIRECTLY TO CONSOLE
-set output out
+# LOAD ABOX
+import "./fso-abox.ttl"
 
 # RUN TEST QUERY
 SELECT ?c WHERE { \

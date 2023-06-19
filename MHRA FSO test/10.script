@@ -1,0 +1,46 @@
+# CREATE STORE
+dstore create flow-system-totorial
+
+# ACTIVATE
+active flow-system-totorial
+
+# SET OUTPUT TO PRINT DIRECTLY TO CONSOLE
+set output out
+
+# DEFINE PREFIXES
+prefix fso: <https://w3id.org/fso#>
+prefix ex: <https://example.com/ex#>
+
+# LOAD ABOX
+import "./fso-abox.ttl"
+import "./boundary-conditions.ttl"
+import "./fluids.ttl"
+
+# LOAD TBOX
+import > <https://w3id.org/fso> "./fso.ttl"
+importaxioms <https://w3id.org/fso>
+
+# LOAD RULES
+import "./RULES/terminal-temperature-difference.dlog"
+import "./RULES/terminal-flow-simple.dlog"
+import "./RULES/indirectly-supplies-fluid-to.dlog"
+import "./RULES/indirectly-returns-fluid-to.dlog"
+import "./RULES/segment-flow-supply.dlog"
+import "./RULES/segment-flow-return.dlog"
+import "./RULES/segment-inner-cross-sectional-area.dlog"
+import "./RULES/segment-fluid-velocity.dlog"
+
+# GET STORE STATS
+info
+
+# GET RULE STATS
+info rulestats
+
+# EXPLAIN HOW FLUID VELOCITY WAS DERIVED
+explain shortest ex:fluidVelocity[<https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoVk>, 1.2673449172132112e-1]
+
+# REMOVE STORE
+dstore delete flow-system-totorial force
+
+# QUIT
+quit

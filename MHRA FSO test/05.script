@@ -9,17 +9,25 @@ set output out
 
 # DEFINE PREFIXES
 prefix fso: <https://w3id.org/fso#>
+prefix ex: <https://example.com/ex#>
 
 # LOAD ABOX
 import "./fso-abox.ttl"
+import "./boundary-conditions.ttl"
+import "./fluids.ttl"
 
 # LOAD TBOX
 import > <https://w3id.org/fso> "./fso.ttl"
 importaxioms <https://w3id.org/fso>
 
+# LOAD RULES
+import "./RULES/terminal-temperature-difference.dlog"
+import "./RULES/terminal-flow-simple.dlog"
+
 # RUN TEST QUERY
-SELECT ?c WHERE { \
-    ?c a fso:Component . \
+SELECT ?t ?q WHERE { \
+    ?t a fso:Terminal ; \
+        ex:terminalVolumeFlow ?q . \
 }
 
 # REMOVE STORE

@@ -1,0 +1,41 @@
+# CREATE STORE
+dstore create flow-system-totorial
+
+# ACTIVATE
+active flow-system-totorial
+
+# SET OUTPUT TO PRINT DIRECTLY TO CONSOLE
+set output out
+
+# DEFINE PREFIXES
+prefix fso: <https://w3id.org/fso#>
+prefix ex: <https://example.com/ex#>
+
+# LOAD ABOX
+import "./fso-abox.ttl"
+import "./boundary-conditions.ttl"
+import "./fluids.ttl"
+
+# LOAD TBOX
+import > <https://w3id.org/fso> "./fso.ttl"
+importaxioms <https://w3id.org/fso>
+
+# LOAD RULES
+import "./RULES/terminal-temperature-difference.dlog"
+import "./RULES/terminal-flow-simple.dlog"
+import "./RULES/indirectly-supplies-fluid-to.dlog"
+import "./RULES/indirectly-returns-fluid-to.dlog"
+import "./RULES/segment-flow-supply.dlog"
+import "./RULES/segment-flow-return.dlog"
+
+# RUN TEST QUERY
+SELECT ?q ?qPerH WHERE { \
+    <https://web-bim/resources/FSO-TEST/3ToSAz1uv2RhyV07DgOoVk> ex:segmentVolumeFlow ?q . \
+    BIND(?q*3600 AS ?qPerH) \
+}
+
+# REMOVE STORE
+dstore delete flow-system-totorial force
+
+# QUIT
+quit

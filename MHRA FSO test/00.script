@@ -4,7 +4,11 @@ dstore create flow-system-totorial
 # ACTIVATE
 active flow-system-totorial
 
-# REMOVE STORE AND QUIT
+# SET OUTPUT TO PRINT DIRECTLY TO CONSOLE
+set output out
+
+# REMOVE STORE
 dstore delete flow-system-totorial force
 
+# QUIT
 quit
