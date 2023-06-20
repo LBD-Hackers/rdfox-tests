@@ -1,0 +1,34 @@
+# CREATE STORE
+dstore create flow-system-totorial
+
+# ACTIVATE
+active flow-system-totorial
+
+# SET OUTPUT TO PRINT DIRECTLY TO CONSOLE
+set output out
+
+# DEFINE PREFIXES
+prefix fso: <https://w3id.org/fso#>
+prefix fpo: <https://w3id.org/fpo#>
+
+# LOAD ABOX
+import "./Data-Model.ttl"
+
+# LOAD TBOX
+import > <https://w3id.org/fso> "../MHRA FSO test/fso.ttl"
+importaxioms <https://w3id.org/fso>
+import > <https://w3id.org/fsox> "./Data-Model.ttl"
+importaxioms <https://w3id.org/fsox>
+
+# RUN TEST QUERY
+#SELECT * WHERE { \
+#    <https://example.com/inst#986d15be-dba3-45d0-8c95-3e3092b68fcb-001a5e9d> ?p ?o . \
+#}
+
+explain fso:Port[<https://example.com/inst#986d15be-dba3-45d0-8c95-3e3092b68fcb-001a5e9d>]
+
+# REMOVE STORE
+dstore delete flow-system-totorial force
+
+# QUIT
+quit

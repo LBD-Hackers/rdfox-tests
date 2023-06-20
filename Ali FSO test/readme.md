@@ -1,0 +1,1 @@
+Run example: `RDFox sandbox . ./00.script`
